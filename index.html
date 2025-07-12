@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key Press Detector</title>
+</head>
+<body>
+  <h2>Press any key on your keyboard</h2>
+  <p id="output" style="font-size: 24px; color: blue;"></p>
+  <p><b>All keys pressed:</b> <span id="allKeys" style="font-size: 20px; color: green;"></span></p>
+
+  <script>
+    // Define the array outside the event — GLOBAL SCOPE
+    let pressedKeys = [];
+
+    // Listen for key press events
+    document.addEventListener("keydown", function(event) {
+      let key = event.key;
+
+      // Add key to the same array
+      pressedKeys.push(key);
+
+      // Display the last key pressed
+      document.getElementById("output").innerHTML = `You pressed: <b>${key}</b>`;
+
+      // Display the whole array as a string
+      document.getElementById("allKeys").innerText = pressedKeys.join(" ");
+    });
+  </script>
+</body>
+</html>
